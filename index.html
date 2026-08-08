@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Angelo's Multi Specialist and Diagnostic Center</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0d9488;
+            --text-dark: #1f2937;
+            --light-bg: #f3f4f6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        header {
+            background: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-text {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--secondary); }
+        .hero {
+            padding: 10rem 5% 5rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+        .btn.fb {
+            background: #1877f2;
+        }
+        .btn:hover { opacity: 0.9; }
+        .info-ribbon {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        .section { padding: 4rem 5%; }
+        .section h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--secondary);
+        }
+        .card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        .split-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .split-box { flex: 1; min-width: 300px; }
+        footer {
+            background: #111827;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; gap: 1rem; }
+            nav a { margin: 0 0.75rem; }
+            .hero { padding-top: 13rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">St. Angelo's Diagnostic Center</div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#mv">Our Mission</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Providing Quality Healthcare & Patient Care For 27 Years</h1>
+        <p>Established in February 1999, we are a duly registered medical clinic dedicated to delivering cost-effective, precise, and compassionate medical services to the City of Biñan and surrounding regions.</p>
+        <div class="btn-group">
+            <a href="tel:09988847668" class="btn">Call Us Now</a>
+            <a href="https://facebook.com" target="_blank" class="btn fb">Visit Facebook Page</a>
+        </div>
+    </section>
+
+    <div class="info-ribbon">
+        <div>
+            <strong>📍 Physical Address:</strong><br>
+            74 M. Malvar St., San Vicente, City of Biñan, Laguna
+        </div>
+        <div>
+            <strong>📞 Phone Lines:</strong><br>
+            (049) 511-6011 / 0998-884-7668
+        </div>
+        <div>
+            <strong>✉️ Email Desk:</strong><br>
+            st.angelosclinic@yahoo.com
+        </div>
+    </div>
+
+    <section class="section" id="about">
+        <h2>Overview of the Clinic</h2>
+        <p style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #4b5563;">
+            St. Angelo's Multi Specialist and Diagnostic Center proudly serves the primary communities of Biñan, Laguna. Our medical care and diagnostic outreach extend closely to proximate towns including Muntinlupa City (Metro Manila), San Pedro, GMA Cavite, Carmona, Sta. Rosa, and Cabuyao. Over the past 27 years, our commitment to patient-first service has been well accepted and recognized across the region.
+        </p>
+    </section>
+
+    <section class="section" id="services" style="background-color: #fafafa;">
+        <h2>Our Accredited Departments</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Secondary Laboratory</h3>
+                <p>A Department of Health (DOH) accredited facility specialized in proper, cost-effective testing and precise health analytics.</p>
+            </div>
+            <div class="card">
+                <h3>X-Ray Department</h3>
+                <p>DOH accredited on-site medical imaging framework facilitating fast, high-quality diagnostic examinations.</p>
+            </div>
+            <div class="card">
+                <h3>Ultrasound Machine</h3>
+                <p>Advanced internal imaging systems deployed actively for medical, diagnostic, and employment use.</p>
+            </div>
+            <div class="card">
+                <h3>Pre-Employment Exams</h3>
+                <p>Custom screening solutions continuously integrated to meet the unique corporate health needs of local communities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="mv">
+        <h2>Mission, Vision & Objectives</h2>
+        <div class="split-layout">
+            <div class="split-box">
+                <h3 style="color:var(--primary); margin-bottom:0.5rem;">Our Mission</h3>
+                <p>To provide proper, cost-effective laboratory testing and impart superior customer service in an environment that promotes compassionate care and contributes to co-worker satisfaction. We strive to grow and adapt to meet the needs of our patients.</p>
+                <br>
+                <h3 style="color:var(--primary); margin-bottom:0.5rem;">Our Vision</h3>
+                <p>To be a prime healthcare provider in the region that we serve; to be recognized for its devotion and pursuit for excellence in delivering quality healthcare services.</p>
+            </div>
+            <div class="split-box">
+                <h3 style="color:var(--primary); margin-bottom:0.5rem;">Core Objectives</h3>
+                <ul style="margin-left: 1.25rem; color: #4b5563;">
+                    <li>Guarantee that all medical equipment related to laboratory testing activities are properly maintained and monitored.</li>
+                    <li>Deliver accurate test results on the given time frame.</li>
+                    <li>Provide accurate and precise test results that may help in diagnosis of certain diseases.</li>
+                    <li>Keep up with current trends of the methodologies and procedures of laboratory medicine.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h3>St. Angelo's Center</h3>
+                <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.8;">Dedicated to exceptional customer service and care since 1999.</p>
+            </div>
+            <div>
+                <h3>Contact Info</h3>
+                <p>Tel: (049) 511-6011</p>
+                <p>Cell: 0998-884-7668</p>
+                <p>Email: st.angelosclinic@yahoo.com</p>
+            </div>
+            <div>
+                <h3>Find Our Clinic</h3>
+                <p>74 M. Malvar St., San Vicente,</p>
+                <p>City of Biñan, Laguna, Philippines</p>
+                <p style="margin-top:0.5rem;"><a href="https://facebook.com" target="_blank" style="color:var(--secondary); text-decoration:none;">👍 Follow us on Facebook</a></p>
+            </div>
+        </div>
+        <hr style="opacity: 0.2; margin-bottom: 1rem;">
+        <p style="font-size: 0.85rem; opacity: 0.7;">&copy; 2026 St. Angelo's Multi Specialist and Diagnostic Center. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
