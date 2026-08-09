@@ -7,7 +7,7 @@
 
 /* Premium styling adjustments for the logo image */
 .clinic-logo {
-    height: 45px;        /* Limits the height to match header proportions */
+    height: 25px;        /* Limits the height to match header proportions */
     width: auto;         /* Maintains aspect ratio to prevent stretching */
     object-fit: contain;
 }
