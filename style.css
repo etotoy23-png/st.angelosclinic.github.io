@@ -1,0 +1,20 @@
+/* Layout to keep logo and text side-by-side */
+.brand-container {
+    display: flex;
+    align-items: center; /* Aligns items perfectly to the middle horizontally */
+    gap: 12px;           /* Provides clean spacing between the logo and text */
+}
+
+/* Premium styling adjustments for the logo image */
+.clinic-logo {
+    height: 45px;        /* Limits the height to match header proportions */
+    width: auto;         /* Maintains aspect ratio to prevent stretching */
+    object-fit: contain;
+}
+
+/* Brand text styling adjustments */
+.clinic-brand-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333333;      /* Adjust this color code to fit your preferred palette */
+}
