@@ -18,9 +18,3 @@
     font-weight: bold;
     color: #333333;      /* Adjust this color code to fit your preferred palette */
 }
-
-/* Resize utility class */
-.responsive-img {
-    width: 50%;
-    height: auto;
-}
