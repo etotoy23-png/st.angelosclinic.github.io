@@ -225,6 +225,130 @@
     </section>
 
     <section class="section" id="mv">
+        <section class="section" id="prices">
+    <h2>Laboratory & Diagnostic Tests</h2>
+    <p style="margin-bottom: 1.5rem; color: var(--text-muted, #6b7280);">Browse or search our available medical diagnostic tests below.</p>
+
+    <!-- Search Input -->
+    <div style="margin-bottom: 1.5rem;">
+        <input type="text" id="priceSearch" placeholder="Search test name (e.g., FBS, Lipid, Dengue)..." onkeyup="filterPrices()" style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
+    </div>
+
+    <!-- Category Tabs Navigation -->
+    <div class="price-tabs" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;">
+        <button class="tab-btn active" onclick="openCategory(event, 'tab-blood')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: var(--primary, #2563eb); color: white; border-radius: 6px; font-weight: 600;">Blood Chemistry</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-hematology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Hematology</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-serology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Serology</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-packages')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Chemistry Packages</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Other Profiles & Urine</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="tab-blood" class="price-content" style="display: block;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">FBS</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RBS</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PPBS</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">OGCT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">OGTT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BUN</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CREATININE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BUA</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHOLESTEROL</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TRIGLYCERIDES</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HDL (DIRECT)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BILIRUBIN (TB, DB, IB)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TOTAL PROTEIN</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALBUMIN</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPAG</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HBA1C</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-hematology" class="price-content" style="display: none;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">COMPLETE BLOOD COUNT (CBC)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PLATELET COUNT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HGB AND HCT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RETICULOCYTE COUNT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ESR</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ABO TYPING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RH TYPING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PBS</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">MALARIAL SMEAR</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PROTIME</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">APTT</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-serology" class="price-content" style="display: none;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RPR</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">SYPHILLIS-SCREENING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA-SCREENING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA WITH TITER</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">WIDAL TEST</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TYPHIDOT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ASO TITER</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CRP</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RA/RF LATEX</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C3/C4 (EACH)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA SCREENING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA WITH TITER</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE IgM/IgG</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE ANTIGEN (NS1)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE DUO</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LEPTOSPIRAL TEST</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">H-PYLORI</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-packages" class="price-content" style="display: none;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Package Description</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ELECTROLYTES (Na, K, CL - EACH)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 5</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 6 (FBS, BUN, CREA, BUA, TC, TG)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 8 (CHEM 5, TG, HDL, LDL)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 10 (CHEM 8, SGOT, SGPT)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 12 (CHEM 10, Na, K)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-others" class="price-content" style="display: none;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPID PROFILE (SGOT, SGPT, ALKA. PHOS.TPAG, BILIRUBIN)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">KIDNEY PROFILE (CREA, BUN, BUA)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - PROTEIN</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
         <h2>Mission, Vision & Objectives</h2>
         <div class="split-layout">
             <div class="split-box">
@@ -268,6 +392,50 @@
         <hr style="opacity: 0.2; margin-bottom: 1rem;">
         <p style="font-size: 0.85rem; opacity: 0.7;">&copy; 1999 St. Angelo's Multi Specialist and Diagnostic Center. All Rights Reserved.</p>
     </footer>
+<script>
+function openCategory(evt, tabName) {
+    var i, content, buttons;
+    content = document.getElementsByClassName("price-content");
+    for (i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+    }
+    buttons = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].style.background = "#e5e7eb";
+        buttons[i].style.color = "#374151";
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.style.background = "var(--primary, #2563eb)";
+    evt.currentTarget.style.color = "white";
+}
 
+function filterPrices() {
+    var input, filter, tables, tr, td, i, txtValue;
+    input = document.getElementById("priceSearch");
+    filter = input.value.toUpperCase();
+    tables = document.getElementsByClassName("price-table");
+    
+    // Automatically reveal all tabs during search so results span globally
+    var contents = document.getElementsByClassName("price-content");
+    for (i = 0; i < contents.length; i++) {
+        contents[i].style.display = "block";
+    }
+
+    for (let t = 0; t < tables.length; t++) {
+        tr = tables[t].getElementsByTagName("tr");
+        for (i = 1; i < tr.length; i++) { // Skip header row
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+}
+</script>
 </body>
 </html>
