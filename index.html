@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Angelo's Multi Specialist and Diagnostic Center</title>
+    <!-- FontAwesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #1e3a8a;
@@ -44,6 +46,7 @@
             height: 40px;
             width: auto;
             object-fit: contain;
+            mix-blend-mode: multiply;
         }
         .clinic-brand-name {
             font-weight: bold;
@@ -68,6 +71,18 @@
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             text-align: center;
         }
+        .hero-logo-container {
+            margin-bottom: 1.5rem;
+        }
+        .hero-main-logo {
+            height: 270px; /* 2x bigger (doubled from 135px) */
+            width: auto;
+            object-fit: contain;
+            background: transparent;
+            mix-blend-mode: multiply; /* Blends background color seamlessly into gradient */
+            border: none;
+            box-shadow: none;
+        }
         .hero h1 {
             font-size: 2.5rem;
             color: var(--primary);
@@ -84,6 +99,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+            align-items: center;
         }
         .btn {
             background: var(--secondary);
@@ -93,11 +109,39 @@
             border-radius: 5px;
             font-weight: bold;
             transition: opacity 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .btn.fb {
-            background: #1877f2;
-        }
+        .btn.fb { background: #1877f2; }
+        .btn.messenger { background: #006aff; }
+        .btn.wa { background: #25d366; }
         .btn:hover { opacity: 0.9; }
+
+        /* Social Icons Bar Styles */
+        .social-icons-bar {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .social-icon.facebook:hover { background: #1877f2; transform: translateY(-2px); }
+        .social-icon.messenger:hover { background: #006aff; transform: translateY(-2px); }
+        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); transform: translateY(-2px); }
+        .social-icon.whatsapp:hover { background: #25d366; transform: translateY(-2px); }
         
         .info-ribbon {
             background: var(--primary);
@@ -149,6 +193,7 @@
             margin-bottom: 1.5rem;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
+            justify-content: center;
         }
         .tab-btn {
             padding: 0.5rem 1rem;
@@ -159,6 +204,7 @@
             border-radius: 6px;
             font-weight: 600;
             transition: background 0.2s, color 0.2s;
+            font-size: 0.9rem;
         }
         .tab-btn.active {
             background: var(--primary);
@@ -223,11 +269,16 @@
     </header>
 
     <section class="hero">
+        <div class="hero-logo-container">
+            <img src="logo.png" alt="St. Angelo's Center Logo" class="hero-main-logo">
+        </div>
         <h1>Providing Quality Healthcare & Patient Care For 27 Years</h1>
         <p>Established on February 8, 1999, St. Angelo’s Multi Specialist and Diagnostic Center is a duly registered medical clinic dedicated to giving medical services primarily to the communities of Biñan, Laguna, and surrounding towns including Muntinlupa City, San Pedro, GMA Cavite, Carmona, Sta. Rosa, and Cabuyao.</p>
         <div class="btn-group">
-            <a href="tel:09988847668" class="btn">Call Us Now</a>
-            <a href="https://facebook.com" target="_blank" class="btn fb">Visit Facebook Page</a>
+            <a href="tel:09988847668" class="btn"><i class="fa-solid fa-phone"></i> Call Us Now</a>
+            <a href="https://facebook.com" target="_blank" class="btn fb"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://m.me/yourpage" target="_blank" class="btn messenger"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
+            <a href="https://whatsapp.com" target="_blank" class="btn wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
         </div>
     </section>
 
@@ -297,7 +348,7 @@
 
         <!-- Search Input -->
         <div style="margin-bottom: 1.5rem; text-align: center;">
-            <input type="text" id="priceSearch" placeholder="Search test name (e.g., FBS, Lipid, Dengue)..." onkeyup="filterPrices()" style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
+            <input type="text" id="priceSearch" placeholder="Search test name (e.g., CBC, Glucose, HBsAg)..." onkeyup="filterPrices()" style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
         </div>
 
         <!-- Category Tabs Navigation -->
@@ -307,14 +358,19 @@
             <button class="tab-btn" onclick="openCategory(event, 'tab-serology')">Serology</button>
             <button class="tab-btn" onclick="openCategory(event, 'tab-packages')">Chemistry Packages</button>
             <button class="tab-btn" onclick="openCategory(event, 'tab-enzymes')">Enzymes</button>
-            <button class="tab-btn" onclick="openCategory(event, 'tab-others')">Other Profiles & Urine</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-microscopy')">Clinical Microscopy</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-thyroid')">Thyroid Function</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-markers')">Tumor Markers</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-hormones')">Hormones</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-bacteriology')">Bacteriology & Hepa</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-histopathology')">Histopathology</button>
         </div>
 
-        <!-- Tab Contents -->
+        <!-- Tab 1: Blood Chemistry -->
         <div id="tab-blood" class="price-content" style="display: block;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Blood Chemistry Tests <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
                     <tr><td>FBS</td></tr>
@@ -333,23 +389,35 @@
                     <tr><td>ALBUMIN</td></tr>
                     <tr><td>TPAG</td></tr>
                     <tr><td>HBA1C</td></tr>
+                    <tr><td>SODIUM</td></tr>
+                    <tr><td>POTASSIUM</td></tr>
+                    <tr><td>CHLORIDE</td></tr>
+                    <tr><td>CALCIUM</td></tr>
+                    <tr><td>MAGNESIUM</td></tr>
+                    <tr><td>URIC ACID</td></tr>
+                    <tr><td>AMYLASE</td></tr>
+                    <tr><td>CALCIUM-TOTAL</td></tr>
+                    <tr><td>CALCIUM-IONIZED</td></tr>
+                    <tr><td>INORGANIC PHOSPHORUS</td></tr>
+                    <tr><td>TOTAL IRON</td></tr>
+                    <tr><td>TIBC TOTAL IRON</td></tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- Tab 2: Hematology -->
         <div id="tab-hematology" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Hematology Tests <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
                     <tr><td>COMPLETE BLOOD COUNT (CBC)</td></tr>
                     <tr><td>PLATELET COUNT</td></tr>
-                    <tr><td>HEMOGLOBIN (HGB)</td></tr>
-                    <tr><td>HEMATOCRIT (HCT)</td></tr>
+                    <tr><td>HGB AND HCT</td></tr>
                     <tr><td>RETICULOCYTE COUNT</td></tr>
                     <tr><td>ESR</td></tr>
-                    <tr><td>ABO TYPING (BLOOD TYPING)</td></tr>
+                    <tr><td>ABO TYPING</td></tr>
                     <tr><td>RH TYPING</td></tr>
                     <tr><td>PBS</td></tr>
                     <tr><td>MALARIAL SMEAR</td></tr>
@@ -359,62 +427,65 @@
             </table>
         </div>
 
+        <!-- Tab 3: Serology -->
         <div id="tab-serology" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Serology Tests <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
                     <tr><td>RPR</td></tr>
-                    <tr><td>QUARTER RPR</td></tr>
-                    <tr><td>SYPHILIS SCREENING</td></tr>
-                    <tr><td>TPHA SCREENING</td></tr>
+                    <tr><td>SYPHILLIS-SCREENING</td></tr>
+                    <tr><td>TPHA-SCREENING</td></tr>
                     <tr><td>TPHA WITH TITER</td></tr>
                     <tr><td>WIDAL TEST</td></tr>
                     <tr><td>TYPHIDOT</td></tr>
                     <tr><td>ASO TITER</td></tr>
                     <tr><td>CRP</td></tr>
                     <tr><td>RA/RF LATEX</td></tr>
-                    <tr><td>C3</td></tr>
-                    <tr><td>C4</td></tr>
+                    <tr><td>C3/C4 (EACH)</td></tr>
                     <tr><td>ANA SCREENING</td></tr>
                     <tr><td>ANA WITH TITER</td></tr>
-                    <tr><td>DENGUE IgM/IgG</td></tr>
+                    <tr><td>DENGUE IgM/Igg</td></tr>
                     <tr><td>DENGUE ANTIGEN (NS1)</td></tr>
                     <tr><td>DENGUE DUO</td></tr>
-                    <tr><td>LEPTOSPIRAL TEST</td></tr>
+                    <tr><td>LEPTOSPRIRAL TEST</td></tr>
                     <tr><td>H-PYLORI</td></tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- Tab 4: Chemistry Packages -->
         <div id="tab-packages" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Package Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Chemistry Packages & Profiles <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>ELECTROLYTES (Na, K, Cl)</td></tr>
+                    <tr><td>ELECTROLYTES (Na, K, CL)</td></tr>
                     <tr><td>CHEMISTRY 5 (FBS, BUN, CREA, BUA, TC)</td></tr>
                     <tr><td>CHEMISTRY 6 (FBS, BUN, CREA, BUA, TC, TG)</td></tr>
-                    <tr><td>CHEMISTRY 8 (CHEM 5 COMPOSITION, TG, HDL, LDL)</td></tr>
-                    <tr><td>CHEMISTRY 10 (CHEM 8 COMPOSITION, SGOT, SGPT)</td></tr>
-                    <tr><td>CHEMISTRY 12 (CHEM 10 COMPOSITION, Na, K)</td></tr>
-                    <tr><td>CHEMISTRY 15 (CHEM 12 COMPOSITION, CHLORIDE, HBA1C, CBC, UA)</td></tr>
-                    <tr><td>CHEMISTRY 20 (CHEM 15 COMPOSITION, CALCIUM, TPAG, ALKALINE PHOSPHATASE)</td></tr>
-                    <tr><td>CHEMISTRY 25 (CHEM 20 COMPOSITION, AMYLASE, LIPASE, MAGNESIUM, PHOSPHOROUS)</td></tr>
+                    <tr><td>CHEMISTRY 8 (CHEM 5, TG, HDL, LDL)</td></tr>
+                    <tr><td>CHEMISTRY 10 (CHEM 8, SGOT, SGPT)</td></tr>
+                    <tr><td>CHEMISTRY 12 (CHEM 10, Na, K)</td></tr>
+                    <tr><td>LIPID PROFILE (SGOT, SGPT, ALKA. PHOS. TPAG, BILIRUBIN)</td></tr>
+                    <tr><td>KIDNEY PROFILE (CREA, BUN, BUA)</td></tr>
+                    <tr><td>24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
+                    <tr><td>24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
+                    <tr><td>24 HRS. URINE TEST - PROTEIN</td></tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- Tab 5: Enzymes -->
         <div id="tab-enzymes" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Enzymes & Cardiac Markers <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>ALT / GPT</td></tr>
-                    <tr><td>AST / GOT</td></tr>
+                    <tr><td>ALT/GPT</td></tr>
+                    <tr><td>AST/GOT</td></tr>
                     <tr><td>GGTP</td></tr>
                     <tr><td>ALKALINE PHOSPHATASE</td></tr>
                     <tr><td>ACID PHOSPHATASE</td></tr>
@@ -429,20 +500,133 @@
                     <tr><td>LDH</td></tr>
                 </tbody>
             </table>
-        </div>        
-            
-        <div id="tab-others" class="price-content" style="display: none;">
+        </div>
+
+        <!-- Tab 6: Clinical Microscopy -->
+        <div id="tab-microscopy" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
-                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                    <tr><th>Clinical Microscopy & Body Fluids <span class="avail-text">*Available</span></th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>LIPID PROFILE (TC, TG, HDL, LDL)</td></tr>
-                    <tr><td>LIVER PROFILE (SGOT, SGPT, ALKALINE PHOSPHATASE, TPAG, BILIRUBIN)</td></tr>
-                    <tr><td>KIDNEY PROFILE (CREATININE, BUN, BUA)</td></tr>
-                    <tr><td>24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
-                    <tr><td>24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
-                    <tr><td>24 HRS. URINE TEST - PROTEIN</td></tr>
+                    <tr><td>URINALYSIS</td></tr>
+                    <tr><td>MICRO-ALBUMIN TEST</td></tr>
+                    <tr><td>KETONE/ACETONE (EACH)</td></tr>
+                    <tr><td>BILE/NITRATES/BILIRUBIN (EACH)</td></tr>
+                    <tr><td>SUGAR</td></tr>
+                    <tr><td>UROBILINOGEN</td></tr>
+                    <tr><td>PREGNANCY TEST (URINE)</td></tr>
+                    <tr><td>PREGNANCY TEST (SERUM)</td></tr>
+                    <tr><td>FECALYSIS</td></tr>
+                    <tr><td>OCCULT BLOOD</td></tr>
+                    <tr><td>CONCENTRATION TECHNIQUE</td></tr>
+                    <tr><td>BODY FLUIDS - CELL & DIFF COUNT</td></tr>
+                    <tr><td>BODY FLUIDS - SUGAR</td></tr>
+                    <tr><td>BODY FLUIDS - PROTEIN</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 7: Thyroid Function Test -->
+        <div id="tab-thyroid" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Thyroid Function Tests <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>T3</td></tr>
+                    <tr><td>T4</td></tr>
+                    <tr><td>TSH</td></tr>
+                    <tr><td>FT3</td></tr>
+                    <tr><td>FT4</td></tr>
+                    <tr><td>IRMA TSH</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 8: Tumor Markers -->
+        <div id="tab-markers" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Tumor Markers <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>AFP</td></tr>
+                    <tr><td>CEA</td></tr>
+                    <tr><td>PSA</td></tr>
+                    <tr><td>B-HCG</td></tr>
+                    <tr><td>CA 125 (OVARY)</td></tr>
+                    <tr><td>CA 15-3 (BREAST)</td></tr>
+                    <tr><td>CA 19-9 (PANCREAS)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 9: Hormones -->
+        <div id="tab-hormones" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Hormones <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FSH</td></tr>
+                    <tr><td>LH</td></tr>
+                    <tr><td>PROLACTIN</td></tr>
+                    <tr><td>PROGESTERONE</td></tr>
+                    <tr><td>TESTOSTERONE</td></tr>
+                    <tr><td>CORTISOL</td></tr>
+                    <tr><td>FERRITIN</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 10: Bacteriology & Hepatitis Profiles -->
+        <div id="tab-bacteriology" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Bacteriology, Hepatitis & Profiles <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>GRAMSTAIN</td></tr>
+                    <tr><td>AFB</td></tr>
+                    <tr><td>KOH</td></tr>
+                    <tr><td>BLOOD C/S</td></tr>
+                    <tr><td>CULTURE & SENSITIVITY</td></tr>
+                    <tr><td>CULTURE & SENSITIVITY WITH ARD-PEDIA</td></tr>
+                    <tr><td>CULTURE & SENSITIVITY WITH ARD-ADULT</td></tr>
+                    <tr><td>(1.) HbsAg Screening</td></tr>
+                    <tr><td>(2.) HbsAg with TITER</td></tr>
+                    <tr><td>(3.) ANTI-HBS WITH TITER</td></tr>
+                    <tr><td>(4.) HbeAg</td></tr>
+                    <tr><td>(5.) ANTI-HBE</td></tr>
+                    <tr><td>(6.) ANTI-HBC IgM</td></tr>
+                    <tr><td>(7.) ANTI-HBC IgG</td></tr>
+                    <tr><td>(8.) ANTI-HAV IgM</td></tr>
+                    <tr><td>(9.) ANTI-HAV IgG</td></tr>
+                    <tr><td>(10.) ANTI-HCV</td></tr>
+                    <tr><td>HEPATITIS A PROFILE (8 & 9)</td></tr>
+                    <tr><td>HEPATITIS B PROFILE (2-7)</td></tr>
+                    <tr><td>HEPATITIS A & B PROFILE (2-9)</td></tr>
+                    <tr><td>HEPATITIS A, B, & C PROFILE (2-10)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 11: Histopathology -->
+        <div id="tab-histopathology" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Histopathology & Cytology <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PAP SMEAR</td></tr>
+                    <tr><td>CELL BLOCK</td></tr>
+                    <tr><td>CELL CYTOLOGY</td></tr>
+                    <tr><td>FNAB - SMALL</td></tr>
+                    <tr><td>FNAB - MEDIUM</td></tr>
+                    <tr><td>FNAB - LARGE</td></tr>
+                    <tr><td>FNAB - XL</td></tr>
+                    <tr><td>FNAB - XXL</td></tr>
                 </tbody>
             </table>
         </div>
@@ -475,6 +659,13 @@
             <div>
                 <h3>St. Angelo's Clinic</h3>
                 <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.8;">Dedicated to exceptional customer service and care since 1999.</p>
+                <!-- Footer Social Icons -->
+                <div class="social-icons-bar">
+                    <a href="https://facebook.com" target="_blank" class="social-icon facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://m.me/yourpage" target="_blank" class="social-icon messenger" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://whatsapp.com" target="_blank" class="social-icon whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
             </div>
             <div>
                 <h3>Contact Info</h3>
@@ -486,7 +677,6 @@
                 <h3>Find Our Clinic</h3>
                 <p>74 M. Malvar St., San Vicente,</p>
                 <p>City of Biñan, Laguna, Philippines 4024</p>
-                <p style="margin-top:0.5rem;"><a href="https://facebook.com" target="_blank" style="color:var(--secondary); text-decoration:none;">👍 Follow us on Facebook</a></p>
             </div>
         </div>
         <hr style="opacity: 0.2; margin-bottom: 1rem;">
