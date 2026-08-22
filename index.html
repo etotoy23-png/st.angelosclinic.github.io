@@ -240,7 +240,7 @@
         <button class="tab-btn" onclick="openCategory(event, 'tab-hematology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Hematology</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-serology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Serology</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-packages')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Chemistry Packages</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">ENZYMES</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Enzymes</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Other Profiles & Urine</button>
     </div>
 
@@ -248,7 +248,7 @@
     <div id="tab-blood" class="price-content" style="display: block;">
         <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description •	Available</th></tr>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">FBS</td></tr>
@@ -274,7 +274,7 @@
     <div id="tab-hematology" class="price-content" style="display: none;">
         <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">COMPLETE BLOOD COUNT (CBC)</td></tr>
@@ -296,7 +296,7 @@
     <div id="tab-serology" class="price-content" style="display: none;">
         <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RPR</td></tr>
@@ -325,7 +325,7 @@
     <div id="tab-packages" class="price-content" style="display: none;">
         <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Package Description</th></tr>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Package Description *Available</th></tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ELECTROLYTES (NA (Sodium), K (Potassium, CL (Chloride))</td></tr>
@@ -341,10 +341,34 @@
         </table>
     </div>
 
+    <div id="tab-enzymes" class="price-content" style="display: none;">
+        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALT / GPT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">AST / GOT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">GGTP</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALKALINE PHOSPHATASE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ACID PHOSPHATASE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">AMYLASE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPASE</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TOTAL CPK</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CPK-MB</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CPK-MM</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN 1 (QUALITATIVE)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN 1 (QUANTITATIVE)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN T</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LDH</td></tr>
+            </tbody>
+        </table>
+    </div>        
+            
     <div id="tab-others" class="price-content" style="display: none;">
         <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
+                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPID PROFILE (TC, TG, HDL, LDL)</td></tr>
