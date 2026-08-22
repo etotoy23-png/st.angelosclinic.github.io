@@ -75,11 +75,11 @@
             margin-bottom: 1.5rem;
         }
         .hero-main-logo {
-            height: 270px; /* 2x bigger (doubled from 135px) */
+            height: 270px; /* 2x bigger, transparent blended look */
             width: auto;
             object-fit: contain;
             background: transparent;
-            mix-blend-mode: multiply; /* Blends background color seamlessly into gradient */
+            mix-blend-mode: multiply;
             border: none;
             box-shadow: none;
         }
@@ -242,6 +242,21 @@
             gap: 2rem;
             text-align: left;
             margin-bottom: 2rem;
+        }
+
+        /* 4K Ultra-Wide Screen Optimization */
+        @media (min-width: 2560px) {
+            body { font-size: 1.25rem; }
+            header { padding: 1.5rem 10%; }
+            .hero { padding: 14rem 10% 8rem; }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.5rem; max-width: 1200px; }
+            .hero-main-logo { height: 500px; }
+            .section { padding: 6rem 10%; }
+            .section h2 { font-size: 3rem; }
+            .grid { grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+            .card { padding: 3rem; }
+            .price-table th, .price-table td { padding: 1.25rem 1.5rem; font-size: 1.2rem; }
         }
         
         @media (max-width: 768px) {
@@ -704,21 +719,18 @@
         filter = input.value.toUpperCase();
         tables = document.getElementsByClassName("price-table");
         
-        // Target all *Available elements
         var availSpans = document.getElementsByClassName("avail-text");
 
-        // Change color to green if text is typed, reset if input is empty
         for (var s = 0; s < availSpans.length; s++) {
             if (filter.length > 0) {
-                availSpans[s].style.color = "#10b981"; // Emerald green
+                availSpans[s].style.color = "#10b981";
                 availSpans[s].style.fontWeight = "bold";
             } else {
-                availSpans[s].style.color = ""; // Resets to default
+                availSpans[s].style.color = "";
                 availSpans[s].style.fontWeight = "";
             }
         }
         
-        // Automatically reveal all tabs during search so results span globally
         var contents = document.getElementsByClassName("price-content");
         for (i = 0; i < contents.length; i++) {
             contents[i].style.display = "block";
@@ -726,7 +738,7 @@
 
         for (let t = 0; t < tables.length; t++) {
             tr = tables[t].getElementsByTagName("tr");
-            for (i = 1; i < tr.length; i++) { // Skip header row
+            for (i = 1; i < tr.length; i++) {
                 td = tr[i].getElementsByTagName("td")[0];
                 if (td) {
                     txtValue = td.textContent || td.innerText;
