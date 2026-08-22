@@ -240,6 +240,7 @@
         <button class="tab-btn" onclick="openCategory(event, 'tab-hematology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Hematology</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-serology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Serology</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-packages')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Chemistry Packages</button>
+        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">ENZYMES</button>
         <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Other Profiles & Urine</button>
     </div>
 
@@ -278,10 +279,11 @@
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">COMPLETE BLOOD COUNT (CBC)</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PLATELET COUNT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HGB AND HCT</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HEMOGLOBIN (HGB)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HEMATOCRIT (HCT)</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RETICULOCYTE COUNT</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ESR</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ABO TYPING</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ABO TYPING (BLOOD TYPING)</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RH TYPING</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PBS</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">MALARIAL SMEAR</td></tr>
@@ -298,6 +300,7 @@
             </thead>
             <tbody>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RPR</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">QUARTER RPR</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">SYPHILLIS-SCREENING</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA-SCREENING</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA WITH TITER</td></tr>
@@ -306,7 +309,8 @@
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ASO TITER</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CRP</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RA/RF LATEX</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C3/C4 (EACH)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C3</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C4</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA SCREENING</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA WITH TITER</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE IgM/IgG</td></tr>
@@ -324,12 +328,15 @@
                 <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Package Description</th></tr>
             </thead>
             <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ELECTROLYTES (Na, K, CL - EACH)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 5</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ELECTROLYTES (NA (Sodium), K (Potassium, CL (Chloride))</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 5 (FBS, BUN, CREA, BUA, TC)</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 6 (FBS, BUN, CREA, BUA, TC, TG)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 8 (CHEM 5, TG, HDL, LDL)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 10 (CHEM 8, SGOT, SGPT)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 12 (CHEM 10, Na, K)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 8 (CHEM 5 COMPOSITION, TG, HDL, LDL)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 10 (CHEM 8 COMPOSITION, SGOT, SGPT)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 12 (CHEM 10 COMPOSITION, Na (Sodium), K (Potassium)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 15 (CHEM 12 COMPOSITION, CHLORIDE, HBA1C, CBC, UA)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 20 (CHEM 15 COMPOSITION, CALCIUM, TPAG, ALKALINE PHOSPHATASE)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 25 (CHEM 20 COMPOSITION, AMYLASE, LIPASE, MAGNESIUM, PHOSPHOROUS)</td></tr>    
             </tbody>
         </table>
     </div>
@@ -340,8 +347,9 @@
                 <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description</th></tr>
             </thead>
             <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPID PROFILE (SGOT, SGPT, ALKA. PHOS.TPAG, BILIRUBIN)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">KIDNEY PROFILE (CREA, BUN, BUA)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPID PROFILE (TC, TG, HDL, LDL)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIVER PROFILE (SGOT, SGPT, ALKALINE PHOSPHATASE, TPAG, BILIRUBIN)</td></tr>
+                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">KIDNEY PROFILE (CREATENINE, BUN, BUA)</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
                 <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - PROTEIN</td></tr>
