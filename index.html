@@ -10,6 +10,7 @@
             --secondary: #0d9488;
             --text-dark: #1f2937;
             --light-bg: #f3f4f6;
+            --border-color: #e5e7eb;
         }
         * {
             margin: 0;
@@ -20,6 +21,7 @@
         body {
             color: var(--text-dark);
             line-height: 1.6;
+            background-color: #ffffff;
         }
         header {
             background: white;
@@ -33,10 +35,24 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo-text {
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .clinic-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        .clinic-brand-name {
             font-weight: bold;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--primary);
+        }
+        nav {
+            display: flex;
+            align-items: center;
         }
         nav a {
             text-decoration: none;
@@ -46,6 +62,7 @@
             transition: color 0.3s;
         }
         nav a:hover { color: var(--secondary); }
+        
         .hero {
             padding: 10rem 5% 5rem;
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
@@ -57,9 +74,10 @@
             margin-bottom: 1rem;
         }
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            color: #4b5563;
         }
         .btn-group {
             display: flex;
@@ -80,6 +98,7 @@
             background: #1877f2;
         }
         .btn:hover { opacity: 0.9; }
+        
         .info-ribbon {
             background: var(--primary);
             color: white;
@@ -89,6 +108,7 @@
             gap: 1.5rem;
             text-align: center;
         }
+        
         .section { padding: 4rem 5%; }
         .section h2 {
             text-align: center;
@@ -96,6 +116,7 @@
             margin-bottom: 2rem;
             font-size: 2rem;
         }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,8 +127,10 @@
             padding: 2rem;
             border-radius: 8px;
             border-top: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
         .card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        
         .split-layout {
             display: flex;
             flex-wrap: wrap;
@@ -117,6 +140,50 @@
             border-radius: 8px;
         }
         .split-box { flex: 1; min-width: 300px; }
+
+        /* Pricing Section Styles */
+        .price-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: none;
+            background: var(--border-color);
+            color: #374151;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .price-table th {
+            padding: 0.75rem 1rem;
+            background: #f9fafb;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--primary);
+        }
+        .price-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
         footer {
             background: #111827;
             color: white;
@@ -130,26 +197,26 @@
             text-align: left;
             margin-bottom: 2rem;
         }
+        
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; gap: 1rem; }
-            nav a { margin: 0 0.75rem; }
-            .hero { padding-top: 13rem; }
+            header { flex-direction: column; text-align: center; gap: 1rem; position: relative; }
+            .hero { padding-top: 4rem; }
+            nav { justify-content: center; flex-wrap: wrap; }
+            nav a { margin: 0 0.5rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-text"><!-- Top-Left Branding Container -->
-<div class="brand-container">
-    
-    <!-- Replace 'logo.png' with your actual image file name or web path -->
-    <img src="logo.png" alt="St. Angelo's Clinic Logo" class="clinic-logo">
-    <span class="clinic-brand-name">St. Angelo's Multi Specialist and Diagnostic Center</span>
-</div>
+        <div class="brand-container">
+            <img src="logo.png" alt="St. Angelo's Clinic Logo" class="clinic-logo">
+            <span class="clinic-brand-name">St. Angelo's Multi Specialist & Diagnostic Center</span>
+        </div>
         <nav>
             <a href="#about">About Us</a>
             <a href="#services">Services</a>
+            <a href="#prices">Tests & Prices</a>
             <a href="#mv">Our Mission</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -157,7 +224,7 @@
 
     <section class="hero">
         <h1>Providing Quality Healthcare & Patient Care For 27 Years</h1>
-        <p>Established in February 8, 1999, St. Angelo’s Multi Specialist and Diagnostic Center is a duly registered medical clinic dedicated to give medical services primarily to the communities of Biñan, Laguna, also to the surrounding and proximate towns of Muntinlupa City in Metro Manila, San Pedro, Laguna, GMA Cavite, Carmona, Cavite, Sta. Rosa, Laguna and Cabuyao Laguna. The Clinic has its own X-ray Department, a secondary Laboratory Department both Department of Health (DOH) accredited and ultrasound machine for medical and employment use. Our mission of providing quality health services and patient care has been well accepted, duly recognized and appreciated by these communities. The past 27 years have shown that our services are being sought after we have continued to add pre-employment examinations to meet the health needs of those communities.</p>
+        <p>Established on February 8, 1999, St. Angelo’s Multi Specialist and Diagnostic Center is a duly registered medical clinic dedicated to giving medical services primarily to the communities of Biñan, Laguna, and surrounding towns including Muntinlupa City, San Pedro, GMA Cavite, Carmona, Sta. Rosa, and Cabuyao.</p>
         <div class="btn-group">
             <a href="tel:09988847668" class="btn">Call Us Now</a>
             <a href="https://facebook.com" target="_blank" class="btn fb">Visit Facebook Page</a>
@@ -174,7 +241,7 @@
             (049) 511-6011 / (+63) 998-884-7668
         </div>
         <div>
-            <strong>✉️ e-mail address:</strong><br>
+            <strong>✉️ E-mail Address:</strong><br>
             st.angelosclinic@yahoo.com
         </div>
     </div>
@@ -182,7 +249,7 @@
     <section class="section" id="about">
         <h2>Overview of the Clinic</h2>
         <p style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #4b5563;">
-            St. Angelo's Multi Specialist and Diagnostic Center proudly serves the primary communities of Biñan, Laguna. Our medical care and diagnostic outreach extend closely to proximate towns including Muntinlupa City (Metro Manila), San Pedro, GMA Cavite, Carmona, Sta. Rosa, and Cabuyao. Over the past 27 years, our commitment to patient-first service has been well accepted and recognized across the region.
+            Over the past 27 years, our commitment to patient-first service has been well accepted and recognized across the region. We feature an on-site DOH-accredited secondary laboratory, screening drug test laboratory, FDA-accredited X-ray department, and ultrasound capabilities to meet individual and corporate health requirements.
         </p>
     </section>
 
@@ -191,19 +258,19 @@
         <div class="grid">
             <div class="card">
                 <h3>Secondary Laboratory</h3>
-                <p>Regulated and accredited under Department of Health standards(such as DOH-mandated proficiency testing and guidelines) to ensure accurate chain-of-custody and analytical reliability.</p>
+                <p>Regulated and accredited under Department of Health standards to ensure accurate chain-of-custody and analytical reliability.</p>
             </div>
             <div class="card">
                 <h3>Screening Drug Test Laboratory</h3>
-                <p>DOH accredited on-site Screening examinations. A medical facility uses immunoassay methods to test urine or other body fluids for common substances of abuse. These tests support pre-employment, school entry, and legal or corporate compliance.</p>
+                <p>DOH-accredited on-site screening examinations utilizing immunoassay methods for pre-employment, school entry, and corporate compliance.</p>
             </div>
             <div class="card">
                 <h3>X-Ray Department</h3>
-                <p>FDA accredited on-site medical imaging framework facilitating fast, high-quality diagnostic examinations.</p>
+                <p>FDA-accredited on-site medical imaging framework facilitating fast, high-quality diagnostic examinations.</p>
             </div>
             <div class="card">
-                <h3>12-lead ECG (electrocardiogram)</h3>
-                <p>a quick, painless, non-invasive test that records the heart's electrical activity from 12 different angles using 10 physical skin electrodes. It helps doctors diagnose heart attacks, irregular heartbeats (arrhythmias), and other cardiac issues.</p>
+                <h3>12-Lead ECG</h3>
+                <p>Quick, painless, non-invasive test recording heart electrical activity from 12 angles to help diagnose cardiac issues.</p>
             </div>
             <div class="card">
                 <h3>Ultrasound Machine</h3>
@@ -211,176 +278,177 @@
             </div>
             <div class="card">
                 <h3>Audiometry</h3>
-                <p>a safe, painless hearing test that measures your ability to hear sounds by their volume (intensity in decibels) and pitch (frequency in Hertz). It helps detect hearing loss and identify its type and underlying cause.</p>
+                <p>Safe, painless hearing test that measures ability to hear sounds by volume and pitch to detect potential hearing loss.</p>
             </div>
             <div class="card">
                 <h3>Industrial Medical Services</h3>
-                <p>Specialized occupational health programs, workplace injury treatments, and routine employee health exams. These services help companies maintain safe environments and comply with labor health standards.</p>
+                <p>Specialized occupational health programs, workplace injury treatments, and routine employee health exams.</p>
             </div>
             <div class="card">
                 <h3>Pre-Employment Exams</h3>
-                <p>Custom screening solutions continuously integrated to meet the unique corporate health needs of local communities.</p>
+                <p>Custom screening solutions continuously integrated to meet corporate health standards of local communities.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="mv">
-        <section class="section" id="prices">
-    <h2>Laboratory & Diagnostic Tests</h2>
-    <p style="margin-bottom: 1.5rem; color: var(--text-muted, #6b7280);">Browse or search our available medical diagnostic tests below.</p>
+    <section class="section" id="prices">
+        <h2>Laboratory & Diagnostic Tests</h2>
+        <p style="margin-bottom: 1.5rem; text-align: center; color: #6b7280;">Browse or search our available medical diagnostic tests below.</p>
 
-    <!-- Search Input -->
-    <div style="margin-bottom: 1.5rem;">
-        <input type="text" id="priceSearch" placeholder="Search test name (e.g., FBS, Lipid, Dengue)..." onkeyup="filterPrices()" style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
-    </div>
+        <!-- Search Input -->
+        <div style="margin-bottom: 1.5rem; text-align: center;">
+            <input type="text" id="priceSearch" placeholder="Search test name (e.g., FBS, Lipid, Dengue)..." onkeyup="filterPrices()" style="width: 100%; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem;">
+        </div>
 
-    <!-- Category Tabs Navigation -->
-    <div class="price-tabs" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem;">
-        <button class="tab-btn active" onclick="openCategory(event, 'tab-blood')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: var(--primary, #2563eb); color: white; border-radius: 6px; font-weight: 600;">Blood Chemistry</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-hematology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Hematology</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-serology')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Serology</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-packages')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Chemistry Packages</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Enzymes</button>
-        <button class="tab-btn" onclick="openCategory(event, 'tab-others')" style="padding: 0.5rem 1rem; cursor: pointer; border: none; background: #e5e7eb; color: #374151; border-radius: 6px; font-weight: 600;">Other Profiles & Urine</button>
-    </div>
+        <!-- Category Tabs Navigation -->
+        <div class="price-tabs">
+            <button class="tab-btn active" onclick="openCategory(event, 'tab-blood')">Blood Chemistry</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-hematology')">Hematology</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-serology')">Serology</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-packages')">Chemistry Packages</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-enzymes')">Enzymes</button>
+            <button class="tab-btn" onclick="openCategory(event, 'tab-others')">Other Profiles & Urine</button>
+        </div>
 
-    <!-- Tab Contents -->
-    <div id="tab-blood" class="price-content" style="display: block;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">FBS</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RBS</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PPBS</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">OGCT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">OGTT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BUN</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CREATININE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BUA</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHOLESTEROL</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TRIGLYCERIDES</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HDL (DIRECT)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">BILIRUBIN (TB, DB, IB)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TOTAL PROTEIN</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALBUMIN</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPAG</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HBA1C</td></tr>
-            </tbody>
-        </table>
-    </div>
+        <!-- Tab Contents -->
+        <div id="tab-blood" class="price-content" style="display: block;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FBS</td></tr>
+                    <tr><td>RBS</td></tr>
+                    <tr><td>PPBS</td></tr>
+                    <tr><td>OGCT</td></tr>
+                    <tr><td>OGTT</td></tr>
+                    <tr><td>BUN</td></tr>
+                    <tr><td>CREATININE</td></tr>
+                    <tr><td>BUA</td></tr>
+                    <tr><td>CHOLESTEROL</td></tr>
+                    <tr><td>TRIGLYCERIDES</td></tr>
+                    <tr><td>HDL (DIRECT)</td></tr>
+                    <tr><td>BILIRUBIN (TB, DB, IB)</td></tr>
+                    <tr><td>TOTAL PROTEIN</td></tr>
+                    <tr><td>ALBUMIN</td></tr>
+                    <tr><td>TPAG</td></tr>
+                    <tr><td>HBA1C</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="tab-hematology" class="price-content" style="display: none;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">COMPLETE BLOOD COUNT (CBC)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PLATELET COUNT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HEMOGLOBIN (HGB)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">HEMATOCRIT (HCT)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RETICULOCYTE COUNT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ESR</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ABO TYPING (BLOOD TYPING)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RH TYPING</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PBS</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">MALARIAL SMEAR</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">PROTIME</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">APTT</td></tr>
-            </tbody>
-        </table>
-    </div>
+        <div id="tab-hematology" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>COMPLETE BLOOD COUNT (CBC)</td></tr>
+                    <tr><td>PLATELET COUNT</td></tr>
+                    <tr><td>HEMOGLOBIN (HGB)</td></tr>
+                    <tr><td>HEMATOCRIT (HCT)</td></tr>
+                    <tr><td>RETICULOCYTE COUNT</td></tr>
+                    <tr><td>ESR</td></tr>
+                    <tr><td>ABO TYPING (BLOOD TYPING)</td></tr>
+                    <tr><td>RH TYPING</td></tr>
+                    <tr><td>PBS</td></tr>
+                    <tr><td>MALARIAL SMEAR</td></tr>
+                    <tr><td>PROTIME</td></tr>
+                    <tr><td>APTT</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="tab-serology" class="price-content" style="display: none;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RPR</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">QUARTER RPR</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">SYPHILLIS-SCREENING</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA-SCREENING</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TPHA WITH TITER</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">WIDAL TEST</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TYPHIDOT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ASO TITER</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CRP</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">RA/RF LATEX</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C3</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">C4</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA SCREENING</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ANA WITH TITER</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE IgM/IgG</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE ANTIGEN (NS1)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">DENGUE DUO</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LEPTOSPIRAL TEST</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">H-PYLORI</td></tr>
-            </tbody>
-        </table>
-    </div>
+        <div id="tab-serology" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>RPR</td></tr>
+                    <tr><td>QUARTER RPR</td></tr>
+                    <tr><td>SYPHILIS SCREENING</td></tr>
+                    <tr><td>TPHA SCREENING</td></tr>
+                    <tr><td>TPHA WITH TITER</td></tr>
+                    <tr><td>WIDAL TEST</td></tr>
+                    <tr><td>TYPHIDOT</td></tr>
+                    <tr><td>ASO TITER</td></tr>
+                    <tr><td>CRP</td></tr>
+                    <tr><td>RA/RF LATEX</td></tr>
+                    <tr><td>C3</td></tr>
+                    <tr><td>C4</td></tr>
+                    <tr><td>ANA SCREENING</td></tr>
+                    <tr><td>ANA WITH TITER</td></tr>
+                    <tr><td>DENGUE IgM/IgG</td></tr>
+                    <tr><td>DENGUE ANTIGEN (NS1)</td></tr>
+                    <tr><td>DENGUE DUO</td></tr>
+                    <tr><td>LEPTOSPIRAL TEST</td></tr>
+                    <tr><td>H-PYLORI</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="tab-packages" class="price-content" style="display: none;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Package Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ELECTROLYTES (NA (Sodium), K (Potassium, CL (Chloride))</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 5 (FBS, BUN, CREA, BUA, TC)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 6 (FBS, BUN, CREA, BUA, TC, TG)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 8 (CHEM 5 COMPOSITION, TG, HDL, LDL)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 10 (CHEM 8 COMPOSITION, SGOT, SGPT)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 12 (CHEM 10 COMPOSITION, Na (Sodium), K (Potassium)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 15 (CHEM 12 COMPOSITION, CHLORIDE, HBA1C, CBC, UA)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 20 (CHEM 15 COMPOSITION, CALCIUM, TPAG, ALKALINE PHOSPHATASE)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CHEMISTRY 25 (CHEM 20 COMPOSITION, AMYLASE, LIPASE, MAGNESIUM, PHOSPHOROUS)</td></tr>    
-            </tbody>
-        </table>
-    </div>
+        <div id="tab-packages" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Package Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ELECTROLYTES (Na, K, Cl)</td></tr>
+                    <tr><td>CHEMISTRY 5 (FBS, BUN, CREA, BUA, TC)</td></tr>
+                    <tr><td>CHEMISTRY 6 (FBS, BUN, CREA, BUA, TC, TG)</td></tr>
+                    <tr><td>CHEMISTRY 8 (CHEM 5 COMPOSITION, TG, HDL, LDL)</td></tr>
+                    <tr><td>CHEMISTRY 10 (CHEM 8 COMPOSITION, SGOT, SGPT)</td></tr>
+                    <tr><td>CHEMISTRY 12 (CHEM 10 COMPOSITION, Na, K)</td></tr>
+                    <tr><td>CHEMISTRY 15 (CHEM 12 COMPOSITION, CHLORIDE, HBA1C, CBC, UA)</td></tr>
+                    <tr><td>CHEMISTRY 20 (CHEM 15 COMPOSITION, CALCIUM, TPAG, ALKALINE PHOSPHATASE)</td></tr>
+                    <tr><td>CHEMISTRY 25 (CHEM 20 COMPOSITION, AMYLASE, LIPASE, MAGNESIUM, PHOSPHOROUS)</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="tab-enzymes" class="price-content" style="display: none;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALT / GPT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">AST / GOT</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">GGTP</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ALKALINE PHOSPHATASE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">ACID PHOSPHATASE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">AMYLASE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPASE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TOTAL CPK</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CPK-MB</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">CPK-MM</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN 1 (QUALITATIVE)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN 1 (QUANTITATIVE)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">TROPONIN T</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LDH</td></tr>
-            </tbody>
-        </table>
-    </div>        
+        <div id="tab-enzymes" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>ALT / GPT</td></tr>
+                    <tr><td>AST / GOT</td></tr>
+                    <tr><td>GGTP</td></tr>
+                    <tr><td>ALKALINE PHOSPHATASE</td></tr>
+                    <tr><td>ACID PHOSPHATASE</td></tr>
+                    <tr><td>AMYLASE</td></tr>
+                    <tr><td>LIPASE</td></tr>
+                    <tr><td>TOTAL CPK</td></tr>
+                    <tr><td>CPK-MB</td></tr>
+                    <tr><td>CPK-MM</td></tr>
+                    <tr><td>TROPONIN I (QUALITATIVE)</td></tr>
+                    <tr><td>TROPONIN I (QUANTITATIVE)</td></tr>
+                    <tr><td>TROPONIN T</td></tr>
+                    <tr><td>LDH</td></tr>
+                </tbody>
+            </table>
+        </div>        
             
-    <div id="tab-others" class="price-content" style="display: none;">
-        <table class="price-table" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="border-bottom: 2px solid #e5e7eb; background: #f9fafb;"><th style="padding: 0.75rem;">Test Description *Available</th></tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIPID PROFILE (TC, TG, HDL, LDL)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">LIVER PROFILE (SGOT, SGPT, ALKALINE PHOSPHATASE, TPAG, BILIRUBIN)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">KIDNEY PROFILE (CREATENINE, BUN, BUA)</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;"><td style="padding: 0.75rem;">24 HRS. URINE TEST - PROTEIN</td></tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+        <div id="tab-others" class="price-content" style="display: none;">
+            <table class="price-table">
+                <thead>
+                    <tr><th>Test Description <span class="avail-text">*Available</span></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>LIPID PROFILE (TC, TG, HDL, LDL)</td></tr>
+                    <tr><td>LIVER PROFILE (SGOT, SGPT, ALKALINE PHOSPHATASE, TPAG, BILIRUBIN)</td></tr>
+                    <tr><td>KIDNEY PROFILE (CREATININE, BUN, BUA)</td></tr>
+                    <tr><td>24 HRS. URINE TEST - CREATININE TOTAL</td></tr>
+                    <tr><td>24 HRS. URINE TEST - CREATININE CLEARANCE</td></tr>
+                    <tr><td>24 HRS. URINE TEST - PROTEIN</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section" id="mv" style="background-color: #fafafa;">
         <h2>Mission, Vision & Objectives</h2>
         <div class="split-layout">
             <div class="split-box">
@@ -388,14 +456,14 @@
                 <p>To provide proper, cost-effective laboratory testing and impart superior customer service in an environment that promotes compassionate care and contributes to co-worker satisfaction. We strive to grow and adapt to meet the needs of our patients.</p>
                 <br>
                 <h3 style="color:var(--primary); margin-bottom:0.5rem;">Our Vision</h3>
-                <p>To be a prime healthcare provider in the region that we serve; to be recognized for its devotion and pursuit for excellence in delivering quality healthcare services.</p>
+                <p>To be a prime healthcare provider in the region that we serve; to be recognized for its devotion and pursuit of excellence in delivering quality healthcare services.</p>
             </div>
             <div class="split-box">
                 <h3 style="color:var(--primary); margin-bottom:0.5rem;">Core Objectives</h3>
                 <ul style="margin-left: 1.25rem; color: #4b5563;">
                     <li>Guarantee that all medical equipment related to laboratory testing activities are properly maintained and monitored.</li>
                     <li>Deliver accurate test results on the given time frame.</li>
-                    <li>Provide accurate and precise test results that may help in diagnosis of certain diseases.</li>
+                    <li>Provide accurate and precise test results that may help in the diagnosis of certain diseases.</li>
                     <li>Keep up with current trends of the methodologies and procedures of laboratory medicine.</li>
                 </ul>
             </div>
@@ -424,50 +492,63 @@
         <hr style="opacity: 0.2; margin-bottom: 1rem;">
         <p style="font-size: 0.85rem; opacity: 0.7;">&copy; 1999 St. Angelo's Multi Specialist and Diagnostic Center. All Rights Reserved.</p>
     </footer>
-<script>
-function openCategory(evt, tabName) {
-    var i, content, buttons;
-    content = document.getElementsByClassName("price-content");
-    for (i = 0; i < content.length; i++) {
-        content[i].style.display = "none";
-    }
-    buttons = document.getElementsByClassName("tab-btn");
-    for (i = 0; i < buttons.length; i++) {
-        buttons[i].style.background = "#e5e7eb";
-        buttons[i].style.color = "#374151";
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.style.background = "var(--primary, #2563eb)";
-    evt.currentTarget.style.color = "white";
-}
 
-function filterPrices() {
-    var input, filter, tables, tr, td, i, txtValue;
-    input = document.getElementById("priceSearch");
-    filter = input.value.toUpperCase();
-    tables = document.getElementsByClassName("price-table");
-    
-    // Automatically reveal all tabs during search so results span globally
-    var contents = document.getElementsByClassName("price-content");
-    for (i = 0; i < contents.length; i++) {
-        contents[i].style.display = "block";
+    <script>
+    function openCategory(evt, tabName) {
+        var i, content, buttons;
+        content = document.getElementsByClassName("price-content");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        buttons = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
     }
 
-    for (let t = 0; t < tables.length; t++) {
-        tr = tables[t].getElementsByTagName("tr");
-        for (i = 1; i < tr.length; i++) { // Skip header row
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
+    function filterPrices() {
+        var input, filter, tables, tr, td, i, txtValue;
+        input = document.getElementById("priceSearch");
+        filter = input.value.toUpperCase();
+        tables = document.getElementsByClassName("price-table");
+        
+        // Target all *Available elements
+        var availSpans = document.getElementsByClassName("avail-text");
+
+        // Change color to green if text is typed, reset if input is empty
+        for (var s = 0; s < availSpans.length; s++) {
+            if (filter.length > 0) {
+                availSpans[s].style.color = "#10b981"; // Emerald green
+                availSpans[s].style.fontWeight = "bold";
+            } else {
+                availSpans[s].style.color = ""; // Resets to default
+                availSpans[s].style.fontWeight = "";
+            }
+        }
+        
+        // Automatically reveal all tabs during search so results span globally
+        var contents = document.getElementsByClassName("price-content");
+        for (i = 0; i < contents.length; i++) {
+            contents[i].style.display = "block";
+        }
+
+        for (let t = 0; t < tables.length; t++) {
+            tr = tables[t].getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) { // Skip header row
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
                 }
             }
         }
     }
-}
-</script>
+    </script>
 </body>
 </html>
