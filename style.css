@@ -5,11 +5,22 @@
     gap: 12px;           /* Provides clean spacing between the logo and text */
 }
 
-/* Premium styling adjustments for the logo image */
+/* Premium styling adjustments for the logo image with metallic circle & white background */
 .clinic-logo {
+    width: 45px;         /* Forces a square width to keep it a clean circle */
     height: 45px;        /* Limits the height to match header proportions */
-    width: auto;         /* Maintains aspect ratio to prevent stretching */
-    object-fit: contain;
+    border-radius: 50%;  /* Makes the image fully circular */
+    object-fit: cover;   /* Crops the logo nicely to fit inside the circle */
+    background-color: #ffffff; /* Solid white background */
+    
+    /* Creates a realistic metallic gradient border */
+    border: 3px solid transparent;
+    background: 
+        linear-gradient(#ffffff, #ffffff) padding-box, 
+        linear-gradient(135deg, #bdc3c7, #2c3e50, #7f8c8d) border-box;
+    
+    /* Soft shadow for depth */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Brand text styling adjustments */
