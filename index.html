@@ -219,14 +219,15 @@
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-        .price-table th {
+        .price-table th, .price-table td {
             padding: 0.75rem 1rem;
+        }
+        .price-table th {
             background: #f9fafb;
             border-bottom: 2px solid var(--border-color);
             color: var(--primary);
         }
         .price-table td {
-            padding: 0.75rem 1rem;
             border-bottom: 1px solid #f3f4f6;
         }
 
@@ -710,7 +711,8 @@
                 </tbody>
             </table>
         </div>
-        <!-- Tab: Ultrasound Services -->
+
+        <!-- Tab 13: Ultrasound Services -->
         <div id="tab-ultrasound" class="price-content" style="display: none;">
             <table class="price-table">
                 <thead>
@@ -744,124 +746,54 @@
                 </tbody>
             </table>
         </div>
-        <!-- Tab: Routine & Packages Pricing -->
-<div id="tab-routine-packages" class="price-content" style="display: none;">
-    <h3 style="color: var(--primary); margin-bottom: 1rem;">Routine and Common Tests</h3>
-    <table class="price-table" style="margin-bottom: 2rem;">
-        <thead>
-            <tr>
-                <th>Test / Package</th>
-                <th style="text-align: right;">Price (PHP)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CBC, APC</td>
-                <td style="text-align: right;">350</td>
-            </tr>
-            <tr>
-                <td>UA (Urinalysis)</td>
-                <td style="text-align: right;">60</td>
-            </tr>
-            <tr>
-                <td>FA (Fecalysis)</td>
-                <td style="text-align: right;">60</td>
-            </tr>
-            <tr>
-                <td>Chest PA</td>
-                <td style="text-align: right;">250</td>
-            </tr>
-            <tr>
-                <td>Chest PA w/ comparison</td>
-                <td style="text-align: right;">350</td>
-            </tr>
-            <tr>
-                <td>APLV</td>
-                <td style="text-align: right;">350</td>
-            </tr>
-            <tr>
-                <td>PAP Smear</td>
-                <td style="text-align: right;">950</td>
-            </tr>
-            <tr>
-                <td>ECG</td>
-                <td style="text-align: right;">500</td>
-            </tr>
-            <tr>
-                <td>Audiometry</td>
-                <td style="text-align: right;">450</td>
-            </tr>
-            <tr>
-                <td>Ishihara</td>
-                <td style="text-align: right;">250</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <h3 style="color: var(--primary); margin-bottom: 1rem;">Combined Test Packages</h3>
-    <table class="price-table">
-        <thead>
-            <tr>
-                <th>Test / Package</th>
-                <th style="text-align: right;">Price (PHP)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>BASIC 5</td>
-                <td style="text-align: right;">500</td>
-            </tr>
-            <tr>
-                <td>BASIC 5 + DT</td>
-                <td style="text-align: right;">650</td>
-            </tr>
-            <tr>
-                <td>B5 + HB</td>
-                <td style="text-align: right;">650</td>
-            </tr>
-            <tr>
-                <td>B5 + Hepa A</td>
-                <td style="text-align: right;">850</td>
-            </tr>
-            <tr>
-                <td>B5 + DT + HB</td>
-                <td style="text-align: right;">700</td>
-            </tr>
-            <tr>
-                <td>B5 + 2 + ECG</td>
-                <td style="text-align: right;">1,150</td>
-            </tr>
-            <tr>
-                <td>B3</td>
-                <td style="text-align: right;">350</td>
-            </tr>
-            <tr>
-                <td>B3 + HBSAG</td>
-                <td style="text-align: right;">650</td>
-            </tr>
-            <tr>
-                <td>B5 + 2 Hepa A</td>
-                <td style="text-align: right;">1,150</td>
-            </tr>
-            <tr>
-                <td>B5 + 2 + PT</td>
-                <td style="text-align: right;">950</td>
-            </tr>
-            <tr>
-                <td>B5 + DT + PT</td>
-                <td style="text-align: right;">850</td>
-            </tr>
-            <tr>
-                <td>B5 + ST + Hepa A</td>
-                <td style="text-align: right;">950</td>
-            </tr>
-            <tr>
-                <td>B5 + 2 + Ishihara</td>
-                <td style="text-align: right;">850</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <!-- Tab 14: Routine & Packages Pricing (Without Price Column) -->
+        <div id="tab-routine-packages" class="price-content" style="display: none;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Routine and Common Tests</h3>
+            <table class="price-table" style="margin-bottom: 2rem;">
+                <thead>
+                    <tr>
+                        <th>Test / Package</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>CBC, APC</td></tr>
+                    <tr><td>UA (Urinalysis)</td></tr>
+                    <tr><td>FA (Fecalysis)</td></tr>
+                    <tr><td>Chest PA</td></tr>
+                    <tr><td>Chest PA w/ comparison</td></tr>
+                    <tr><td>APLV</td></tr>
+                    <tr><td>PAP Smear</td></tr>
+                    <tr><td>ECG</td></tr>
+                    <tr><td>Audiometry</td></tr>
+                    <tr><td>Ishihara</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Combined Test Packages</h3>
+            <table class="price-table">
+                <thead>
+                    <tr>
+                        <th>Test / Package</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>BASIC 5</td></tr>
+                    <tr><td>BASIC 5 + DT</td></tr>
+                    <tr><td>B5 + HB</td></tr>
+                    <tr><td>B5 + Hepa A</td></tr>
+                    <tr><td>B5 + DT + HB</td></tr>
+                    <tr><td>B5 + 2 + ECG</td></tr>
+                    <tr><td>B3</td></tr>
+                    <tr><td>B3 + HBSAG</td></tr>
+                    <tr><td>B5 + 2 Hepa A</td></tr>
+                    <tr><td>B5 + 2 + PT</td></tr>
+                    <tr><td>B5 + DT + PT</td></tr>
+                    <tr><td>B5 + ST + Hepa A</td></tr>
+                    <tr><td>B5 + 2 + Ishihara</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section class="section" id="mv" style="background-color: #fafafa;">
@@ -891,7 +823,6 @@
             <div>
                 <h3>St. Angelo's Clinic</h3>
                 <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.8;">Dedicated to exceptional customer service and care since 1999.</p>
-                <!-- Footer Social Icons -->
                 <div class="social-icons-bar">
                     <a href="https://facebook.com" target="_blank" class="social-icon facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://m.me/st.angelosclinic" target="_blank" class="social-icon messenger" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
@@ -917,21 +848,18 @@
 
     <script>
     function openCategory(evt, tabName) {
-        // Clear search box when manually clicking category tabs for a clean view
         document.getElementById("priceSearch").value = "";
         
-        var i, content, buttons;
-        content = document.getElementsByClassName("price-content");
-        for (i = 0; i < content.length; i++) {
-            content[i].style.display = "none";
+        const contents = document.getElementsByClassName("price-content");
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].style.display = "none";
         }
         
-        // Reset table row visibility in case a search left some hidden
-        var allRows = document.querySelectorAll(".price-table tr");
+        const allRows = document.querySelectorAll(".price-table tr");
         allRows.forEach(row => row.style.display = "");
 
-        buttons = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < buttons.length; i++) {
+        const buttons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
         
@@ -940,63 +868,49 @@
     }
 
     function filterPrices() {
-        var input, filter, tables, tr, td, i, txtValue;
-        input = document.getElementById("priceSearch");
-        filter = input.value.toUpperCase().trim();
-        
-        var availSpans = document.getElementsByClassName("avail-text");
-        var contents = document.getElementsByClassName("price-content");
+        const input = document.getElementById("priceSearch");
+        const filter = input.value.toUpperCase().trim();
+        const availSpans = document.getElementsByClassName("avail-text");
+        const contents = document.getElementsByClassName("price-content");
 
-        // If the search box is empty, revert to default tab view (show only active tab)
         if (filter === "") {
-            for (var s = 0; s < availSpans.length; s++) {
+            for (let s = 0; s < availSpans.length; s++) {
                 availSpans[s].style.color = "";
                 availSpans[s].style.fontWeight = "";
             }
             
-            // Find which tab button is currently active and show only that section
-            var activeBtn = document.querySelector(".tab-btn.active");
-            var activeTabId = activeBtn ? activeBtn.getAttribute("onclick").match(/'([^']+)'/)[1] : 'tab-blood';
+            const activeBtn = document.querySelector(".tab-btn.active");
+            const activeTabId = activeBtn ? activeBtn.getAttribute("onclick").match(/'([^']+)'/)[1] : 'tab-blood';
             
-            for (i = 0; i < contents.length; i++) {
-                if (contents[i].id === activeTabId) {
-                    contents[i].style.display = "block";
-                } else {
-                    contents[i].style.display = "none";
-                }
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = (contents[i].id === activeTabId) ? "block" : "none";
             }
 
-            // Reset row displays
-            var allRows = document.querySelectorAll(".price-table tr");
-            allRows.forEach(row => row.style.display = "");
+            document.querySelectorAll(".price-table tr").forEach(row => row.style.display = "");
             return;
         }
 
-        // When typing in search: show ALL categories so results from any section appear immediately
-        for (i = 0; i < contents.length; i++) {
+        for (let i = 0; i < contents.length; i++) {
             contents[i].style.display = "block";
         }
 
-        for (var s = 0; s < availSpans.length; s++) {
+        for (let s = 0; s < availSpans.length; s++) {
             availSpans[s].style.color = "#10b981";
             availSpans[s].style.fontWeight = "bold";
         }
 
-        tables = document.getElementsByClassName("price-table");
+        const tables = document.getElementsByClassName("price-table");
         for (let t = 0; t < tables.length; t++) {
-            tr = tables[t].getElementsByTagName("tr");
-            for (i = 1; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
+            const tr = tables[t].getElementsByTagName("tr");
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[0];
                 if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
+                    const txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
                 }
             }
         }
     }
     </script>
+</body>
 </html>
