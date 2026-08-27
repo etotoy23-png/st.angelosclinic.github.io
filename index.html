@@ -763,15 +763,24 @@
 
     <script>
     function openCategory(evt, tabName) {
+        // Clear search box when manually clicking category tabs for a clean view
+        document.getElementById("priceSearch").value = "";
+        
         var i, content, buttons;
         content = document.getElementsByClassName("price-content");
         for (i = 0; i < content.length; i++) {
             content[i].style.display = "none";
         }
+        
+        // Reset table row visibility in case a search left some hidden
+        var allRows = document.querySelectorAll(".price-table tr");
+        allRows.forEach(row => row.style.display = "");
+
         buttons = document.getElementsByClassName("tab-btn");
         for (i = 0; i < buttons.length; i++) {
             buttons[i].classList.remove("active");
         }
+        
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.classList.add("active");
     }
@@ -779,26 +788,47 @@
     function filterPrices() {
         var input, filter, tables, tr, td, i, txtValue;
         input = document.getElementById("priceSearch");
-        filter = input.value.toUpperCase();
-        tables = document.getElementsByClassName("price-table");
+        filter = input.value.toUpperCase().trim();
         
         var availSpans = document.getElementsByClassName("avail-text");
+        var contents = document.getElementsByClassName("price-content");
 
-        for (var s = 0; s < availSpans.length; s++) {
-            if (filter.length > 0) {
-                availSpans[s].style.color = "#10b981";
-                availSpans[s].style.fontWeight = "bold";
-            } else {
+        // If the search box is empty, revert to default tab view (show only active tab)
+        if (filter === "") {
+            for (var s = 0; s < availSpans.length; s++) {
                 availSpans[s].style.color = "";
                 availSpans[s].style.fontWeight = "";
             }
+            
+            // Find which tab button is currently active and show only that section
+            var activeBtn = document.querySelector(".tab-btn.active");
+            var activeTabId = activeBtn ? activeBtn.getAttribute("onclick").match(/'([^']+)'/)[1] : 'tab-blood';
+            
+            for (i = 0; i < contents.length; i++) {
+                if (contents[i].id === activeTabId) {
+                    contents[i].style.display = "block";
+                } else {
+                    contents[i].style.display = "none";
+                }
+            }
+
+            // Reset row displays
+            var allRows = document.querySelectorAll(".price-table tr");
+            allRows.forEach(row => row.style.display = "");
+            return;
         }
-        
-        var contents = document.getElementsByClassName("price-content");
+
+        // When typing in search: show ALL categories so results from any section appear immediately
         for (i = 0; i < contents.length; i++) {
             contents[i].style.display = "block";
         }
 
+        for (var s = 0; s < availSpans.length; s++) {
+            availSpans[s].style.color = "#10b981";
+            availSpans[s].style.fontWeight = "bold";
+        }
+
+        tables = document.getElementsByClassName("price-table");
         for (let t = 0; t < tables.length; t++) {
             tr = tables[t].getElementsByTagName("tr");
             for (i = 1; i < tr.length; i++) {
@@ -815,5 +845,4 @@
         }
     }
     </script>
-</body>
 </html>
