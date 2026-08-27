@@ -849,6 +849,7 @@
     <script>
     function openCategory(evt, tabName) {
         document.getElementById("priceSearch").value = "";
+        document.getElementById("searchResultsDropdown").style.display = "none";
         
         const contents = document.getElementsByClassName("price-content");
         for (let i = 0; i < contents.length; i++) {
@@ -870,36 +871,63 @@
     function filterPrices() {
         const input = document.getElementById("priceSearch");
         const filter = input.value.toUpperCase().trim();
-        const availSpans = document.getElementsByClassName("avail-text");
-        const contents = document.getElementsByClassName("price-content");
+        
+        // Ensure dropdown container exists
+        let dropdown = document.getElementById("searchResultsDropdown");
+        if (!dropdown) {
+            dropdown = document.createElement("div");
+            dropdown.id = "searchResultsDropdown";
+            dropdown.style.cssText = "position: absolute; background: white; border: 1px solid #d1d5db; border-radius: 8px; max-height: 200px; overflow-y: auto; width: 100%; max-width: 400px; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: left; display: none; margin-top: 4px;";
+            input.parentNode.style.position = "relative";
+            input.parentNode.appendChild(dropdown);
+        }
 
         if (filter === "") {
-            for (let s = 0; s < availSpans.length; s++) {
-                availSpans[s].style.color = "";
-                availSpans[s].style.fontWeight = "";
-            }
+            dropdown.style.display = "none";
+            dropdown.innerHTML = "";
             
+            const contents = document.getElementsByClassName("price-content");
             const activeBtn = document.querySelector(".tab-btn.active");
             const activeTabId = activeBtn ? activeBtn.getAttribute("onclick").match(/'([^']+)'/)[1] : 'tab-blood';
             
             for (let i = 0; i < contents.length; i++) {
                 contents[i].style.display = (contents[i].id === activeTabId) ? "block" : "none";
             }
-
             document.querySelectorAll(".price-table tr").forEach(row => row.style.display = "");
             return;
         }
 
+        // Search through all tables and collect matching items
+        let matches = [];
+        const tables = document.getElementsByClassName("price-table");
+        for (let t = 0; t < tables.length; t++) {
+            const tr = tables[t].getElementsByTagName("tr");
+            for (let i = 1; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().includes(filter)) {
+                        matches.push(txtValue);
+                    }
+                }
+            }
+        }
+
+        // Render live results dropdown beside/below the search input
+        if (matches.length > 0) {
+            dropdown.innerHTML = matches.map(m => `<div style="padding: 8px 12px; border-bottom: 1px solid #f3f4f6; font-size: 0.95rem; color: #1f2937;"><span style="color: #10b981; font-weight: bold; margin-right: 6px;">✔ Available:</span>${m}</div>`).join('');
+            dropdown.style.display = "block";
+        } else {
+            dropdown.innerHTML = `<div style="padding: 8px 12px; color: #ef4444; font-size: 0.95rem;">No matching tests found</div>`;
+            dropdown.style.display = "block";
+        }
+
+        // Keep table filtering active as well
+        const contents = document.getElementsByClassName("price-content");
         for (let i = 0; i < contents.length; i++) {
             contents[i].style.display = "block";
         }
 
-        for (let s = 0; s < availSpans.length; s++) {
-            availSpans[s].style.color = "#10b981";
-            availSpans[s].style.fontWeight = "bold";
-        }
-
-        const tables = document.getElementsByClassName("price-table");
         for (let t = 0; t < tables.length; t++) {
             const tr = tables[t].getElementsByTagName("tr");
             for (let i = 1; i < tr.length; i++) {
@@ -911,6 +939,15 @@
             }
         }
     }
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", function(e) {
+        const input = document.getElementById("priceSearch");
+        const dropdown = document.getElementById("searchResultsDropdown");
+        if (dropdown && !input.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.style.display = "none";
+        }
+    });
     </script>
 </body>
 </html>
