@@ -1,34 +1,3 @@
-/* Layout to keep logo and text side-by-side */
-.brand-container {
-    display: flex;
-    align-items: center; /* Aligns items perfectly to the middle horizontally */
-    gap: 12px;           /* Provides clean spacing between the logo and text */
-}
-
-/* Premium styling adjustments for the logo image with metallic circle & white background */
-.clinic-logo {
-    width: 45px;         /* Forces a square width to keep it a clean circle */
-    height: 45px;        /* Limits the height to match header proportions */
-    border-radius: 50%;  /* Makes the image fully circular */
-    object-fit: cover;   /* Crops the logo nicely to fit inside the circle */
-    background-color: #ffffff; /* Solid white background */
-    
-    /* Creates a realistic metallic gradient border */
-    border: 3px solid transparent;
-    background: 
-        linear-gradient(#ffffff, #ffffff) padding-box, 
-        linear-gradient(135deg, #bdc3c7, #2c3e50, #7f8c8d) border-box;
-    
-    /* Soft shadow for depth */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Brand text styling adjustments */
-.clinic-brand-name {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #333333;      /* Adjust this color code to fit your preferred palette */
-}
 :root {
     /* Main Brand Colors */
     --primary: #1e3a8a;          /* Deep Navy - Logo Primary */
@@ -49,6 +18,37 @@
     --white: #ffffff;
 }
 
+/* Layout to keep logo and text side-by-side */
+.brand-container {
+    display: flex;
+    align-items: center; /* Aligns items perfectly to the middle horizontally */
+    gap: 12px;           /* Provides clean spacing between the logo and text */
+}
+
+/* Premium styling adjustments for the logo image with metallic circle & white background */
+.clinic-logo {
+    width: 45px;         /* Forces a square width to keep it a clean circle */
+    height: 45px;        /* Limits the height to match header proportions */
+    border-radius: 50%;  /* Makes the image fully circular */
+    object-fit: cover;   /* Crops the logo nicely to fit inside the circle */
+    
+    /* Creates a realistic metallic gradient border with a solid white interior */
+    border: 3px solid transparent;
+    background: 
+        linear-gradient(var(--white), var(--white)) padding-box, 
+        linear-gradient(135deg, #bdc3c7, #2c3e50, #7f8c8d) border-box;
+    
+    /* Soft shadow for depth */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand text styling adjustments */
+.clinic-brand-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-dark);      /* Linked to your theme variables for consistency */
+}
+
 /* Updated Hero Section with Soft Powder Blue Gradient */
 .hero {
     padding: 10rem 1.5rem 5rem;
@@ -67,10 +67,8 @@
     background: var(--white);
     padding: 2rem;
     border-radius: 8px;
+    border: 1px solid var(--powder-blue-border);
     border-top: 4px solid var(--secondary);
-    border-left: 1px solid var(--powder-blue-border);
-    border-right: 1px solid var(--powder-blue-border);
-    border-bottom: 1px solid var(--powder-blue-border);
     box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.04);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
